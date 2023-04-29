@@ -1,7 +1,5 @@
 # GIT BASICS
 
----
-
 **THIS DOESNOT COVER ALL GIT COMMANDS AND FLAGS.**
 
 To list all available commands or additional help. Check:
@@ -116,13 +114,49 @@ Extra Flags
 
 - Switches to a different branch or commit.
 
+```
+git checkout <branch>         ==> switch to the specified branch
+git checkout -b <new-branch>  ==> creates new branch and switches to it
+git checkout -- <file>        ==> discard changes made to a file since last commit and revert it to last committed version
+git checkout -- .             ==> discard all changes made to the file in the working directory since last commit and revert them to the last committed version
+
+// Learn Later
+--detach
+```
+
 ### git fetch
 
 - Fetches changes from a remote repository without merging them.
 
+```
+git fetch origin branch-name    ==> fetches changes from a specific branch on the remote repo to your local repo
+--all                           ==> fetches changes from all remote repo to local repo
+--prune                         ==> fetches changes from the remote repo and removes any references to branches that have been removed in remote
+--tags                          ==> fetches all tags from the remote repo to local repo
+```
+
 ### git merge
 
 - Merges changes from one branch into another.
+
+```
+git merge <branch>
+
+--abort                             ==> abort current conflict resolution process
+--continue                          ==> conclude the merge, whet git merge stops due to conflict.
+
+--commit | --no-commit              ==> merge and commit the result (no-commit => merge and stop before creating a merge commit)
+--edit | -e                         ==> invoke a editor before committing successful mechanical merge
+--cleanup                           ==> determines how message will be cleaned up before commiting
+
+
+// Learn later
+--ff
+--no-ff
+--squash                            ==> squash all commit from branch merging into one commit
+--ff-only
+--stat
+```
 
 ### git pull
 
@@ -140,12 +174,54 @@ git pull origin <branch_name>
 
 ### git remote
 
-- Lists the remote repositories.
+- Manage set of tracked repositories
+- BETTER CHECK `git help remote`
+
+```
+//Learn Later
+git remote
+git remote add                             ==> FOR DESCRIPTIONS . better check `git help remote`
+git remote rename
+git remote remove
+git remote set-head
+git remote set-branches
+git remote get-url
+git remote set-url
+git remote get-url --add
+git remote set-url --delete
+git remote show
+
+```
 
 ### git reset
 
 - Resets changes in the staging area or working directory.
 
+```
+git reset HEAD <file>                  ==> Unstage changes for a specific file.
+git reset --soft HEAD                  ==> Undo the last commit, keeping the changes staged.
+git reset --mixed HEAD                 ==> Undo the last commit and unstage the changes.
+git reset --hard HEAD                  ==> Undo the last commit and delete the changes.
+git reset --hard HEAD                  ==> Discard all local changes and reset to the last commit.
+git reset <commit>                     ==> Reset to a specific commit, discarding any commits after it.
+git reset --hard origin/master         ==> Reset to the latest version of the remote master branch.
+
+```
+
 ### git stash
 
 - Stashes changes in a temporary area.
+
+```
+git stash push
+git stash save
+git stash list
+git stash show
+git stash pop
+git stash apply
+git stash branch
+git stash clear
+git stash drop
+git stash create
+git stash store
+```
