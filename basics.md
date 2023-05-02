@@ -81,6 +81,10 @@ This is tailored to my own progress, and you might find this helpful.
 
 - Shows a history of commits.
 
+```
+git log --graph --decorate --oneline
+```
+
 ### git push
 
 - Pushes changes from the local repository to a remote repository.
